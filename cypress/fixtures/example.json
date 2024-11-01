@@ -1,0 +1,6 @@
+{
+	"baseUrl": "https://www.xenonstack.com",
+	"viewportWidth": 1880,
+	"viewportHeight": 1220,
+	"defaultCommandTimeout": 10000
+}
