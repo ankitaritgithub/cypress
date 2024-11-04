@@ -74,27 +74,190 @@ describe('XenonStack Industries Page E2E Test', () => {
           body: {}, 
         }).as('hubspotAPI');
     
-        cy.visit('https://www.xenonstack.com/neural-ai/');
+        cy.visit('https://www.xenonstack.com/industries/');
         cy.viewport(1280, 720); 
         cy.viewport('macbook-15')
       });
 
-    it('should verify the Title text and Neural AI main section', () => {
-        cy.validateText('h1', 'Accelerate, Optimize and Scale the Data and AI Initiatives');
-        cy.contains("Accelerate the pace, optimize resources, and scale operations to propel your data and AI initiatives forward, unlocking innovation, driving transformative outcomes, and achieving digital transformation in your organization's journey toward success").should('be.visible');
-        cy.get('a').contains('Drive Innovation Forward').should('be.visible');
-        validateBackgroundImageRendering('.section-banner');
-    });
-
-    it('should verify Drive Innovation Forward button', () => {
-        cy.get('.banner-cta-button')
-          .invoke('text')
-          .should('match', /Drive Innovation Forward/); 
-
-        cy.get('.banner-button')
-          .click({ force: true });
-        cy.validateButton('.banner-button', 'https://www.xenonstack.com/readiness-assessment/');
-    });
-    
-
+// **Section 1: Hero Banner**
+        describe('Hero Banner Section', () => {
+          it('should display the title, CTA button, and background image correctly', () => {
+              cy.get('h1').should('contain.text', 'Industry 6.0 - AutonomousOps with Human + AI Intelligence').should('be.visible');
+              cy.get('p').contains('Intelligent systems that can operate autonomously').should('be.visible');
+              cy.get('a').contains('Transform Now').should('be.visible');
+              validateImageRendering('.hero-banner-image'); // Replace with actual selector
+          });
+      });
+  
+// **Section 2: Driving Technology as an Enabler**
+describe('Driving Technology Section', () => {
+  it('should display each feature with heading, icon, and paragraph', () => {
+              cy.get('.feature-section').within(() => {
+                  cy.get('h3').contains('Predictive maintenance').should('be.visible');
+                  cy.get('p').contains('Improves machine uptime and performance').should('be.visible');
+                  validateImageRendering('.predictive-maintenance-icon'); // Replace with actual selector
+  
+                  cy.get('h3').contains('Factory Automation').should('be.visible');
+                  cy.get('p').contains('Automated operations reduce costs').should('be.visible');
+                  validateImageRendering('.factory-automation-icon'); // Replace with actual selector
+  
+                  cy.get('h3').contains('Digital Twin Metaverse Enterprise').should('be.visible');
+                  cy.get('p').contains('Real-time visualization for data').should('be.visible');
+                  validateImageRendering('.digital-twin-icon'); // Replace with actual selector
+              });
+          });
+      });
+       // **Section 3: Industry 5.0**
+    describe('Industry 5.0 Section', () => {
+      it('should display the Industry 5.0 circle image and accompanying text', () => {
+          cy.get('h2').contains('How Digital Twin, Augmented Reality and Metaverse Driving Industry 5.0').should('be.visible');
+          cy.get('p').contains('Intelligent Cloud and Edge AI').should('be.visible');
+          validateButtonRedirect('a:contains("Industry Services")', '/industry-services');
+          validateImageRendering('.industry-5-circle-image'); // Replace with actual image selector
+      });
+  });
 });
+
+  // **Section 4: How we will help you in transformation**
+  describe('Transformation Assistance Section', () => {
+      it('should display section title and description', () => {
+          cy.get('h2').contains('How we will help you in transformation').should('be.visible');
+          cy.get('p').contains('With our assistance, you can navigate the challenges').should('be.visible');
+      });
+
+      it('should validate each capability box - heading, icon, and description', () => {
+          cy.get('.capabilities-section').within(() => {
+              // **Experience**
+              cy.get('.experience-box').within(() => {
+                  cy.get('h3').contains('Experience').should('be.visible');
+                  cy.get('p').contains('Building an experience-first driven strategy').should('be.visible');
+                  validateImageRendering('.experience-icon'); // Replace with actual selector
+              });
+
+              // **Insights**
+              cy.get('.insights-box').within(() => {
+                  cy.get('h3').contains('Insights').should('be.visible');
+                  cy.get('p').contains('Empowering intelligent products and data-driven platforms').should('be.visible');
+                  validateImageRendering('.insights-icon'); // Replace with actual selector
+              });
+
+              // **Secure**
+              cy.get('.secure-box').within(() => {
+                  cy.get('h3').contains('Secure').should('be.visible');
+                  cy.get('p').contains('Revolutionizing Security operations').should('be.visible');
+                  validateImageRendering('.secure-icon'); // Replace with actual selector
+              });
+
+              // **Agility**
+              cy.get('.agility-box').within(() => {
+                  cy.get('h3').contains('Agility').should('be.visible');
+                  cy.get('p').contains('Accelerating Digital Transformation with Agile Framework').should('be.visible');
+                  validateImageRendering('.agility-icon'); // Replace with actual selector
+              });
+
+              // **Experimentations**
+              cy.get('.experimentations-box').within(() => {
+                  cy.get('h3').contains('Experimentations').should('be.visible');
+                  cy.get('p').contains('Incorporating a culture of experimentation').should('be.visible');
+                  validateImageRendering('.experimentations-icon'); // Replace with actual selector
+              });
+          });
+      });
+  
+  
+      // **Section 4: Digital Core Capabilities**
+      describe('Digital Core Capabilities Section', () => {
+          it('should verify headings, icons, descriptions, and clickable buttons for each industry', () => {
+              cy.get('.digital-core-section').within(() => {
+                  cy.get('h2').contains('Digital Core Capabilities').should('be.visible');
+  
+                  // Enterprise Technology Section
+                  cy.get('h3').contains('Enterprise Technology').should('be.visible');
+                  cy.get('p').contains('Empowering digital infrastructure').should('be.visible');
+                  validateImageRendering('.enterprise-technology-icon');
+                  validateUrlRedirect('a:contains("Explore Now")', '/enterprise-technology');
+  
+                  // Banking and Financial Section
+                  cy.get('h3').contains('Banking and Financial sector').should('be.visible');
+                  cy.get('p').contains('Empowering secure transactions').should('be.visible');
+                  validateImageRendering('.banking-financial-icon');
+                  validateUrlRedirect('a:contains("Discover More")', '/banking-financial');
+  
+                  // Additional sections here
+              });
+          });
+      });
+  
+      // **Section 5: Embracing Industry 6.0**
+      describe('Embracing Industry 6.0 Section', () => {
+          it('should validate headings, descriptions, icons, and Explore Further buttons', () => {
+              cy.get('.industry-embracing-section').within(() => {
+                  cy.get('h2').contains('Embracing Industry 6.0').should('be.visible');
+                  cy.get('p').contains('Empowering enterprises with AI').should('be.visible');
+  
+                  // Sustainability Section
+                  cy.get('h3').contains('Sustainability and Environmental Benefits').should('be.visible');
+                  validateImageRendering('.sustainability-icon');
+                  validateUrlRedirect('a:contains("Explore Further")', '/sustainability-environmental');
+  
+                  // Smart Building Section
+                  cy.get('h3').contains('Smart Building Innovations').should('be.visible');
+                  validateImageRendering('.smart-building-icon');
+                  validateUrlRedirect('a:contains("Explore Further")', '/smart-building-innovations');
+  
+                  // Predictive Analytics Section
+                  cy.get('h3').contains('Predictive Analytics and Automation').should('be.visible');
+                  validateImageRendering('.predictive-analytics-icon');
+                  validateUrlRedirect('a:contains("Explore Further")', '/predictive-analytics');
+              });
+          });
+      });
+  
+      // **Section 6: Human + AI Capabilities**
+      describe('Human + AI Capabilities Section', () => {
+          it('should validate images, heading, and description', () => {
+              cy.get('.human-ai-capabilities').within(() => {
+                  cy.get('h3').contains('Tap into the capabilities of Human + AI').should('be.visible');
+                  cy.get('p').contains('Human + AI capabilities empower').should('be.visible');
+                  validateImageRendering('.human-ai-image'); // Adjust selector as needed
+              });
+          });
+      });
+  
+      // **All Buttons Test**
+      describe('Button Functionality Test', () => {
+          it('should verify all buttons are clickable and redirect correctly', () => {
+              cy.get('a').each(($btn) => {
+                  const url = $btn.attr('href');
+                  if (url) {
+                      cy.request(url).its('status').should('eq', 200);
+                  }
+              });
+          });
+      });
+  
+      // **All Images Test**
+      describe('Image Rendering Test', () => {
+          it('should ensure all images load correctly', () => {
+              cy.get('img').each(($img) => {
+                  cy.wrap($img).should('be.visible')
+                      .and(($imgEl) => {
+                          expect($imgEl[0].naturalWidth).to.be.greaterThan(0);
+                      });
+              });
+          });
+      });
+  
+      // **Responsive Design Tests**
+      describe('Responsiveness Tests', () => {
+          it('should display content correctly on mobile view', () => {
+              cy.viewport('iphone-6');
+              cy.get('h1').should('contain.text', 'Industry 6.0 - AutonomousOps with Human + AI Intelligence').should('be.visible');
+              cy.get('a').contains('Transform Now').should('be.visible');
+              cy.get('.feature-section').within(() => {
+                  cy.get('h3').should('be.visible');
+                  cy.get('p').should('be.visible');
+              });
+          });
+      });
+  });
