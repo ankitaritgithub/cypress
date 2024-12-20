@@ -407,4 +407,44 @@ export default function () {
       "confirmPassword": "HarperPass1!"
     }
   ]
-  
+  yilokog419@rabitex.com
+Data@123
+
+
+
+PiyushTeam
+piyush@xenonstack.com
+Piyu@1998
+
+
+
+
+
+1. gimoy83517@kelenson.com
+Data@123
+
+
+
+2. batexa4980@owube.com
+Data@123
+https://piyushteam.lab.neuralcompany.team/member-registration?token=kHZZKCCnnqUPTcvqGCraquOEsfkTFgEZjAe
+
+
+
+
+
+3. sanjeet.jha@xenonstack.com
+Sanjeet@07
+
+
+
+4. ankita.singh@xenonstack.com
+Test@123
+
+pip install pandas
+pip install numpy
+pip install Dask
+pip install scipy
+pip install Matplotlib
+pip install sciket-learn
+https://jam.dev/c/dd5b3233-bb05-4ce7-8b38-5c69f31867c4
